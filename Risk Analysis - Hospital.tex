@@ -1,0 +1,105 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[11pt]{article}
+\input{structure.tex}
+\bibliography{biblio}
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\begin{titlepage}
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+	\center
+	%------------------------------------------------
+	%	Headings
+	%------------------------------------------------
+	\textsc{\LARGE Université de Namur}\\[1.5cm]
+	\textsc{\Large Sécurité et Fiabilité des Systèmes Informatiques }\\[0.5cm]
+	\textsc{\large IHDCM035}\\[0.5cm]
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------	
+	\HRule\\[0.4cm]
+	{\huge\bfseries Analyse de Risques: Informatisation d'un Centre Hospitalier}\\[0.4cm]
+	\HRule\\[1.5cm]	
+	%------------------------------------------------
+	%	Author(s)
+	%------------------------------------------------	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\large
+			\textit{Auteur}\\
+			Kenny \textsc{Warszawski} 
+		\end{flushleft}
+	\end{minipage}
+	~
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright}
+			\large
+			\textit{Professeur}\\
+			Jean-Nöel \textsc{Colin} 
+		\end{flushright}
+	\end{minipage}	
+	%------------------------------------------------
+	%	Date
+	%------------------------------------------------	
+	\vfill\vfill\vfill
+	{\large\today}
+	%------------------------------------------------
+	%	Logo
+	%------------------------------------------------
+	\vfill\vfill
+	\includegraphics[width=0.2\textwidth]{assets/placeholder.png}\\[1cm]
+	\vfill
+\end{titlepage}
+
+\newpage
+%----------------------------------------------------------------------------------------
+%	Content
+%----------------------------------------------------------------------------------------
+\renewcommand{\contentsname}{Table des matières}
+\tableofcontents
+\newpage
+%----------------------------------------------------------------------------------------
+%	Introduction
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+
+\newpage
+
+\section{Présentation de la société} 
+
+\subsection{Description}
+
+\subsection{Organigramme}
+
+\begin{itemize}
+	\item \textbf{BAR:} FOO
+	\item \textbf{BAR:} FOO
+	\item \textbf{BAR:} FOO
+\end{itemize}
+
+\newpage
+
+%---------------------------------------List of Figures----------------------------------------
+
+\section*{Table des figures}
+\makeatletter
+\@starttoc{lof}% Print List of Figures
+\makeatother
+\addcontentsline{toc}{section}{\protect\numberline{}Table des figures}%
+
+%---------------------------------------References----------------------------------------
+
+\nocite{*}
+\section*{Bibliographie}
+\printbibliography[heading=none]
+\addcontentsline{toc}{section}{\protect\numberline{}Bibliographie}%
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------THE END-----------------------------------------
+%----------------------------------------------------------------------------------------
+
+\end{document}
