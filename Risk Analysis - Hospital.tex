@@ -76,7 +76,7 @@ Cette étude des risques concerne le Centre Hospitalier Mercy West(CHMW). Ce cen
 Chaque membre du personnel possède un badge afin de s'authentifier sur la plateforme. Les droits de lecture et modification d'un dossier médical sont associés à des droits qui sont assignés aux utilisateurs.  Ces droits sont associés à la fonction professionelle que l'utilisateur authentifié exerce. Par exemple, si un médecin s'authentifie, il pourra modifier les prescriptions de médicaments d'un patient tandis qu'une aide soignante ne pourra pas. Par contre, cette dernière aura le droit de modifier l'état de santé général du patient: taille, poids, nutrition, etc.
 
 \justify
-Ce logiciel impacte donc le quotidien des employés de cet hopital. Il est indispensable que tout le personnel indique rigoureusement les information concernant le patient. Ainsi, il sera possible de garantir un suivi médical journalier de haute qualité mais également d'en conserver un historique. Si une personne mal intentionnée ou tout simplement non-formée indique des informations erronées, ces peuvent avoir de lourdes conséquences sur le patient. Par conséquent, la réputation de l'hopital pourrait gravement diminuer. L'accès aux informations médicales, l'encodage des données ainsi que la réputation de l'hopital sont des \textbf{biens essentiels}. 
+Ce logiciel impacte donc le quotidien des employés de cet hopital. Il est indispensable que tout le personnel indique rigoureusement les information concernant le patient. Ainsi, il sera possible de garantir un suivi médical journalier de haute qualité mais également d'en conserver un historique. Via cette plateforme, il est également possible de gérer les stocks de médicaments. L'accès aux informations médicales, l'encodage des données ainsi que la gestion des stocks pharmaceutiques sont donc les \textbf{biens essentiels} liés à ce projet. 
 
 \justify
 La confidentialité est un des critères de sécurité les plus important pour l'hôpital. De fait, si les informations médicales d'un patient arrivent entre de mauvaises mains, cela peut également avoir des conséquences dramatiques. Il est essentiel que les données médicales soient sécurisées et exploitable uniquement par les utilisateurs qui en ont le droit.
@@ -87,7 +87,7 @@ En ce qui concerne les \textbf{biens supports}, le centre hospitalier possède u
 \subsection{Objectifs}
 
 \justify
-L'objectif de cette étude est de pouvoir établir une analyse de risque concernant ce projet. De plus, un plan d'action sera proposé en réponse aux évènements redoutés par le centre hospitalier. Le champs de cette étude sera toutefois limitée uniquement à la plateforme précédemment mentionnée. Tous les autres processus organisationnel ou informatiques nullement liés à la problématique ne seront pas pris en compte.
+L'objectif de cette étude est de pouvoir établir une analyse de risque concernant ce projet. De plus, un plan d'action sera proposé en réponse aux scénarios de menace et aux évènements redoutés par le centre hospitalier. Le champs de cette étude sera toutefois limitée uniquement à la plateforme en ligne précédemment mentionnée. Tous les autres processus organisationnel ou informatiques nullement liés à ce projet ne seront pas pris en compte.
 
 \section{Analyse de risques}
 
@@ -142,7 +142,21 @@ Panne de courant & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Problème sur l
 \label{table:encodageDonnees}
 \end{table}
 
-\subsubsection{Réputation}
+\subsubsection{Gestion des stocks pharmaceutiques}
+
+Ce bien essentiel correspond à la partie du système informatique qui est capable de gérer les stocks pharmaceutique. Etant donné que les médicaments sont prescris aux patients de manière informatisée, il est possible pour le gestionnaire de stocks d'accéder à une estimation des médicaments qui restent en stocks et également les médicaments qu'il faudrait commander dans les prochains jours. Grace à ce système, il peut optimiser au mieux les stocks afin de ne pas tomber en rupture de médicaments.
+
+\begin{table}[ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Evenements redoutés & Critère de Sécurité & Source de la Menace & Impact & Severité \\ \hline
+Incendie & idem & idem & \begin{tabular}[c]{@{}l@{}}- Impossible de consulter\\ - Impossible de commander\end{tabular} & Moyen \\ \hline
+ &  &  &  &  \\ \hline
+ &  &  &  &  \\ \hline
+\end{tabular}}
+\end{table}
 
 \subsection{Scénarios de menace}
 
@@ -151,17 +165,26 @@ Cette section est dédiée à une analyse des scénarios de menaces. Cette analy
 \subsubsection{Serveurs}
 
 \begin{table}[ht]
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|}
-Scénario de menace & Source de la menace & Probabilité \\
-Panne du serveur & \begin{tabular}[c]{@{}l@{}}Obsolescence du\\ matériel\end{tabular} & Moyenne \\
-Incendie &  &  \\
- &  & 
-\end{tabular}%
-}
+\hline
+Scénario de menace & Source de la menace & Probabilité \\ \hline
+Panne du serveur & \begin{tabular}[c]{@{}l@{}}Obsolescence du matériel\end{tabular} & Moyenne \\ \hline
+Incendie & \begin{tabular}[c]{@{}l@{}}- Problème matériel\\- Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
+ &  &  \\ \hline
+\end{tabular}
 \end{table}
 
 \subsubsection{Système d'authentification}
+
+\begin{table}[ht]
+\begin{tabular}{|l|l|l|}
+\hline
+Scénario de menace & Source de la menace & Probabilité \\ \hline
+Panne de serveur & \begin{tabular}[c]{@{}l@{}}Obsolescence du matériel\end{tabular} & Moyenne \\ \hline
+Incendie & \begin{tabular}[c]{@{}l@{}}- Problème matériel\\- Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
+ &  &  \\ \hline
+\end{tabular}
+\end{table}
 
 \subsubsection{Données}
 
