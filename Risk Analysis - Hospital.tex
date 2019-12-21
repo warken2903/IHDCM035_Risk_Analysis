@@ -99,64 +99,68 @@ Cette section est dédiée à une analyse des évènements redoutés. Cette anal
 
 L'analyse de ce bien essentiel concerne la consultation des informations des patients. Par exemple, en début de service par un membre du corps médical.
 
-\begin{table}[ht]
-\centering
-\resizebox{\textwidth}{!}{
-\begin{tabular}{|l|l|l|l|l|}
-	\hline
-	Evenements Redoutés & Critère de Sécurité & Source de la Menace & Impact  & Severité \\ \hline
+\begin{longtable}{|l|l|l|l|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}Evenements\\Redoutés\end{tabular} & \begin{tabular}[c]{@{}l@{}}Critère de\\Sécurité\end{tabular} & \begin{tabular}[c]{@{}l@{}}Source de\\la Menace\end{tabular} & Impact  & Severité \\ \hline
+\endfirsthead
+%
+\endhead
+%	
 
-	\begin{tabular}[c]{@{}l@{}}Incendie dans la salle des\\ serveurs (+ système de\\ stockage)\end{tabular}     & Disponibilité       & \begin{tabular}[c]{@{}l@{}}- Dysfonctionnement de\\ matériel\\- Surtension électrique\\ - Personne mal-intentionnée\end{tabular}                                                                                                & \begin{tabular}[c]{@{}l@{}}- Perte des données\\ - Système inaccessible\\ - Réputation de l'hôpital\\ - Vie des patients\end{tabular} & Elevé    \\ \hline
+	\begin{tabular}[c]{@{}l@{}}Incendie dans\\ la salle des\\ serveurs (+\\ système de\\ stockage)\end{tabular}     & Disponibilité       & \begin{tabular}[c]{@{}l@{}}- Dysfonction-\\nement de\\ matériel\\- Surtension\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular}                                                                                                & \begin{tabular}[c]{@{}l@{}}- Perte des\\ données\\ - Système\\ inaccessible\\ - Réputation de\\ l'hôpital\\ - Vie des\\ patients\end{tabular} & Elevé    \\ \hline
 
-	\begin{tabular}[c]{@{}l@{}}Dysfonctionnement du\\ système d'authentification\end{tabular} & Disponibilité       & \begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Utilisateur\end{tabular}                                                                                                                              & \begin{tabular}[c]{@{}l@{}}- Impossibilité de consulter\\ les informations\end{tabular}                                               & Elevé    \\ \hline
+	\begin{tabular}[c]{@{}l@{}}Dysfonction-\\nement du\\ système d'au-\\thentification\end{tabular} & Disponibilité       & \begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Utilisateur\end{tabular}                                                                                                                              & \begin{tabular}[c]{@{}l@{}}- Impossibilité\\ de consulter les\\ informations\end{tabular}                                               & Elevé    \\ \hline
 
-	\begin{tabular}[c]{@{}l@{}}Intrusion d'une personne\\ non autorisée\end{tabular}          & Confidentialité     & \begin{tabular}[c]{@{}l@{}}- Personnel qui a oublié\\ son badge et utilise celui\\ d'un collègue\\ - Mauvaise gestion des roles\\ assignés aux utilisateurs\\- Personne mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Divulgation de données\\ personnelles à une personne\\ non-autorisée. (secret médical)\end{tabular}      & Elevé    \\ \hline
+	\begin{tabular}[c]{@{}l@{}}Intrusion d'une\\ personne non\\-autorisée\end{tabular}          & Confidentialité     & \begin{tabular}[c]{@{}l@{}}- Personnel qui a\\ oublié son badge\\ et utilise celui\\ d'un collègue\\ - Mauvaise gestion\\ des roles as-\\signés aux utili-\\sateurs\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Divulgation de\\ données person-\\nelles à une\\ personne non-\\autorisée.\\(secret médical)\end{tabular}      & Elevé    \\ \hline
 
-	\begin{tabular}[c]{@{}l@{}}Panne de courant\end{tabular}          & Disponibilité     & \begin{tabular}[c]{@{}l@{}}- Problème sur le réseau\\ électrique\\- Personne mal-intentionnée \end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de récupérer\\ les informations des patients \end{tabular}      & TODO    \\ \hline
+	\begin{tabular}[c]{@{}l@{}}Panne de courant\end{tabular}          & Disponibilité     & \begin{tabular}[c]{@{}l@{}}- Problème sur\\ le réseau  éle-\\ctrique\\- Personne\\ mal-intentionnée \end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ récupérer les\\ informations \\des patients \end{tabular}      & TODO    \\ \hline
 	
 	\begin{tabular}[c]{@{}l@{}}TODO\end{tabular}          & TODO     & \begin{tabular}[c]{@{}l@{}} TODO \end{tabular} & \begin{tabular}[c]{@{}l@{}}TODO \end{tabular}      & TODO    \\ \hline
 
-\end{tabular}}
 \caption{Table d'analyse de l'accès aux information médicales}
 \label{table:accesInformationsMedicales}
-\end{table}
+\end{longtable}
 
 \subsubsection{Encodage des données}
 
 L'analyse de ce bien essentiel concerne l'encodage des données sur un patient. Par exemple, en fin de service par un membre du corps médical.
 
-\begin{table}[ht]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|}
+\begin{longtable}{|l|l|l|l|l|}
 \hline
-Evenements redoutés & Critère de Sécurité & Source de la Menace & Impact & Severité \\ \hline
-\begin{tabular}[c]{@{}l@{}}Intrusion d'une personne\\ non-autorisée\end{tabular} & Intégrité & \begin{tabular}[c]{@{}l@{}}- Personnel qui a oublié\\ son badge et utilise celui\\ d'un collègue\\ - Mauvaise gestion des roles\\ assignés aux utilisateurs\\ - Personne mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Altération des données\\ des patients\\ - La vie du patient est\\ mise en danger\end{tabular} & Elevé \\ \hline
-\begin{tabular}[c]{@{}l@{}}Dysfonctionnement du\\ système d'authentification\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Utilisateur\end{tabular} & - Système inutilisable & Elevé \\ \hline
-Panne de courant & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Problème sur le réseau électrique\\ - Personne mal-intentionnée\end{tabular} & - Système inutilisable & Elevé \\ \hline
-\begin{tabular}[c]{@{}l@{}}Incendie dans la salle des\\ serveurs (+ système de\\ stockage)\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Dysfonctionnement du matériel\\ - Surtension électrique\\ - Personne mal-intentionnée\end{tabular} & - Système inutilisable & Elevé \\ \hline
+\begin{tabular}[c]{@{}l@{}}Evenements\\Redoutés\end{tabular} & \begin{tabular}[c]{@{}l@{}}Critère de\\Sécurité\end{tabular} & \begin{tabular}[c]{@{}l@{}}Source de\\la Menace\end{tabular} & Impact  & Severité \\ \hline
+\endfirsthead
+%
+\endhead
+%
+\begin{tabular}[c]{@{}l@{}}Intrusion d'une\\ personne non\\-autorisée\end{tabular} & Intégrité & \begin{tabular}[c]{@{}l@{}}- Personnel qui a\\ oublié son badge\\ et utilise celui\\ d'un collègue\\ - Mauvaise gestion des\\ roles assignés aux\\ utilisateurs\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Altération des\\ données des\\ patients\\ - La vie du\\ patient est\\ mise en\\ danger\end{tabular} & Elevé \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}Dysfonction-\\nement du\\ système d'au-\\thentification\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Utilisateur\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Système\\ inutilisable \end{tabular} & Elevé \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}Panne de\\ courant\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Problème sur\\ le réseau électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Système\\ inutilisable \end{tabular} & Elevé \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}Incendie dans\\ la salle des\\ serveurs (+\\ système de\\ stockage)\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}Dysfonction-\\nement du\\ matériel\\- Surtension\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Système\\ inutilisable \end{tabular} & Elevé \\ \hline
  &  &  &  &  \\ \hline
-\end{tabular}%
-}
+
 \caption{Table d'analyse de l'encodage des données}
 \label{table:encodageDonnees}
-\end{table}
+\end{longtable}
 
 \subsubsection{Gestion des stocks pharmaceutiques}
 
 Ce bien essentiel correspond à la partie du système informatique qui est capable de gérer les stocks pharmaceutique. Etant donné que les médicaments sont prescris aux patients de manière informatisée, il est possible pour le gestionnaire de stocks d'accéder à une estimation des médicaments qui restent en stocks et également les médicaments qu'il faudrait commander dans les prochains jours. Grace à ce système, il peut optimiser au mieux les stocks afin de ne pas tomber en rupture de médicaments.
 
-\begin{table}[ht]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|}
+\begin{longtable}{|l|l|l|l|l|}
 \hline
-Evenements redoutés & Critère de Sécurité & Source de la Menace & Impact & Severité \\ \hline
+\begin{tabular}[c]{@{}l@{}}Evenements\\Redoutés\end{tabular} & \begin{tabular}[c]{@{}l@{}}Critère de\\Sécurité\end{tabular} & \begin{tabular}[c]{@{}l@{}}Source de\\la Menace\end{tabular} & Impact  & Severité \\ \hline
+\endfirsthead
+%
+\endhead
+%
 Incendie & idem & idem & \begin{tabular}[c]{@{}l@{}}- Impossible de consulter\\ - Impossible de commander\end{tabular} & Moyen \\ \hline
  &  &  &  &  \\ \hline
  &  &  &  &  \\ \hline
-\end{tabular}}
-\end{table}
+
+\end{longtable}
 
 \subsection{Scénarios de menace}
 
