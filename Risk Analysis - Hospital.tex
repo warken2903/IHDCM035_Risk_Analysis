@@ -82,7 +82,7 @@ Ce logiciel impacte donc le quotidien des employés de cet hopital. Il est indis
 La confidentialité est un des critères de sécurité les plus important pour l'hôpital. De fait, si les informations médicales d'un patient arrivent entre de mauvaises mains, cela peut également avoir des conséquences dramatiques. Il est essentiel que les données médicales soient sécurisées et exploitable uniquement par les utilisateurs qui en ont le droit.
 
 \justify
-En ce qui concerne les \textbf{biens supports}, le centre hospitalier possède une infrastructure informatique dédiée afin de faire fonctionner l'ensemble de ses logiciels. Cette infrastructure comprend: des ordinateurs, des serveurs, un sous-réseau, un système d'authentification et de multiples disques durs afin de pouvoir stocker les données.
+En ce qui concerne les \textbf{biens supports}, le centre hospitalier possède une infrastructure informatique dédiée afin de faire fonctionner l'ensemble de ses logiciels. Cette infrastructure comprend: des ordinateurs, des serveurs, un sous-réseau, un serveur Active Directory et de multiples disques durs afin de pouvoir stocker les données.
 
 \subsection{Objectifs}
 
@@ -145,7 +145,7 @@ L'analyse de ce bien essentiel concerne l'encodage des données sur un patient. 
 
 \subsubsection{Gestion des stocks pharmaceutiques}
 
-Ce bien essentiel correspond à la partie du système informatique qui est capable de gérer les stocks pharmaceutique. Etant donné que les médicaments sont prescris aux patients de manière informatisée, il est possible pour le gestionnaire de stocks d'accéder à une estimation des médicaments qui restent en stocks et également les médicaments qu'il faudrait commander dans les prochains jours. Grace à ce système, il peut optimiser au mieux les stocks afin de ne pas tomber en rupture de médicaments. A cette fin, le système prévoit également la possibilité de programmer des réservations aux fournisseurs de manière automatisée. 
+Ce bien essentiel correspond à la partie du système informatique qui est capable de gérer les stocks pharmaceutique. Etant donné que les médicaments sont prescris aux patients de manière informatisée, il est possible pour le gestionnaire de stocks d'accéder à une estimation des médicaments qui restent en stocks et également les médicaments qu'il faudrait commander dans les prochains jours. Grace à ce système, il peut optimiser au mieux les stocks afin de ne pas tomber en rupture de médicaments. A cette fin, le système prévoit également la possibilité de programmer des commandes aux fournisseurs de manière automatisée. 
 
 \begin{longtable}{|l|c|l|l|c|}
 \hline
@@ -177,40 +177,90 @@ Cette section est dédiée à une analyse des scénarios de menaces. Cette analy
 
 Les serveurs de l'hôpital sont situés dans une salle qui est prévue à cet effet. Historiquement, l'hôpital ne possédait que très peu de logiciels informatiques. Ils n'ont donc pas investi dans des équipements afin de protéger leur infrastructure. Cette catégorie reprend donc les serveurs où sont installés les logiciels de l'hôpital.
 
-\begin{table}[ht]
-\begin{tabular}{|l|l|l|}
+\begin{longtable}{|c|l|c|}
 \hline
-Scénario de menace & Source de la menace & Probabilité \\ \hline
-Panne du serveur & \begin{tabular}[c]{@{}l@{}}Obsolescence du matériel\end{tabular} & Moyenne \\ \hline
-Incendie & \begin{tabular}[c]{@{}l@{}}- Problème matériel\\- Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
- &  &  \\ \hline
-\end{tabular}
-\end{table}
+\textbf{\begin{tabular}[c]{@{}c@{}}Scénario de Menace\end{tabular}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de la Menace\end{tabular}}} & \textbf{Probabilité} \\ \hline
+\endfirsthead
+%
+\endhead
+%
+\begin{tabular}[c]{@{}c@{}}Panne de serveur\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Dégradation naturelle des compo-\\ sants du serveur\\ - Manipulation d'un technicien\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
 
-\subsubsection{Système d'authentification}
-Le système d'authentification de l'hôpital est situé dans la même salle où se trouvent les serveurs. Ce système se trouve sur une machine dédiée et fait appel à un Active Directory afin de pouvoir authentifier les utilisateurs sur les différentes applications.
+\begin{tabular}[c]{@{}c@{}}Incendie dans la\\salle des serveur\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Dysfonctionnement matériel\\ - Surtension électrique\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
 
-\begin{table}[ht]
-\begin{tabular}{|l|l|l|}
+\begin{tabular}[c]{@{}c@{}}Infection par un\\ virus informatique\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Téléchargement de données non-\\ vérifiées sur Internet\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
+
+\begin{tabular}[c]{@{}c@{}}Récupération de données\\confidentielles\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Administrateur système\\ - Administrateur système third-party\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
+
+Panne de courant électrique & \begin{tabular}[c]{@{}l@{}}- Condition météorologique\\ - Problème sur le réseau électrique\\ - Technicien qui débranche un câble\\ par erreur\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
+
+\caption{Tableau des scénarios de menace pour les serveurs}
+\label{tab:table-serveurs}\\
+\end{longtable}
+
+\subsubsection{Serveur Active Directory}
+Le serveur Active Directory de l'hôpital est situé dans la même salle où se trouvent les serveurs. Ce serveur se trouve sur une machine dédiée et est appelé par les différentes applications de l'hôpital afin de pouvoir authentifier les utilisateurs de manière centralisée.
+
+\begin{longtable}{|c|l|c|}
 \hline
-Scénario de menace & Source de la menace & Probabilité \\ \hline
-Panne de serveur & \begin{tabular}[c]{@{}l@{}}Obsolescence du matériel\end{tabular} & Moyenne \\ \hline
-Incendie & \begin{tabular}[c]{@{}l@{}}- Problème matériel\\- Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
- &  &  \\ \hline
-\end{tabular}
-\end{table}
+\textbf{\begin{tabular}[c]{@{}c@{}}Scénario de\\ Menace\end{tabular}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \textbf{Probabilité} \\ \hline
+\endfirsthead
+%
+\endhead
+%
+Panne de serveur & \begin{tabular}[c]{@{}l@{}}- Dégradation naturelle des compo-\\ sants du serveur\\ - Manipulation d'un technicien\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
 
-\subsubsection{Données}
+\begin{tabular}[c]{@{}c@{}}Incendie dans\\ la salle des \\ serveur\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Dysfonctionnement matériel\\ - Surtension électrique\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
 
-\subsubsection{Réseau interne}
+\begin{tabular}[c]{@{}c@{}}Infection par un\\ virus informatique\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Téléchargement de données non-\\ vérifiées sur Internet\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
 
-\subsubsection{Disques durs}
+\begin{tabular}[c]{@{}c@{}}Récupération des données\\ de connexion\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Administrateur système\\ - Administrateur système third-party\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
+
+\begin{tabular}[c]{@{}c@{}}Altération des données\\ de connexion\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Administrateur système\\ - Administrateur système third-party\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
+
+Panne de courant électrique & \begin{tabular}[c]{@{}l@{}}- Condition météorologique\\ - Problème sur le réseau électrique\\ - Technicien qui débranche un câble\\ par erreur\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
+\caption{Tableau des scénarios de menace pour le système d'authentification}
+\label{tab:table-authentification}\\
+\end{longtable}
 
 \subsubsection{Ordinateurs}
 
-\subsubsection{Active Directory}
+Ce bien support reprend les ordinateurs qui sont mis à disposition du personnel pour accéder à la plateforme de gestion.
 
-\subsection{Synthèse}
+\begin{longtable}{|c|l|c|}
+\hline
+\textbf{\begin{tabular}[c]{@{}c@{}}Scénario de\\ Menace\end{tabular}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \textbf{Probabilité} \\ \hline
+\endfirsthead
+%
+\endhead
+%
+Panne d'ordinateur & \begin{tabular}[c]{@{}l@{}}- Dégradation naturelle des compo-\\ sants du serveur\\ - Manipulation d'un technicien\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
+Panne de courant électrique & \begin{tabular}[c]{@{}l@{}}- Condition météorologique\\ - Technicien qui débranche un câble\\ par erreur\\ - Problème sur le réseau électrique\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
+\begin{tabular}[c]{@{}c@{}}Infection par un virus\\ informatique\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Téléchargement de données non-\\ vérifiées sur Internet\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
+\caption{Tableau des scénarios de menace pour les ordinateurs}
+\label{tab:table-ordinateurs}\\
+\end{longtable}
+
+\subsubsection{Disques durs}
+
+Les disques durs de l'hôpital sont stockés dans un endroit spécifique de la salle serveur. Ces disques durs n'ont aucune configuration particulière afin de garantir des backups. (pas de RAID)
+
+\begin{longtable}{|c|l|c|}
+\hline
+\textbf{\begin{tabular}[c]{@{}c@{}}Scénario de Menace\end{tabular}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de la Menace\end{tabular}}} & \textbf{Probabilité} \\ \hline
+\endfirsthead
+%
+\endhead
+%
+Incendie & \begin{tabular}[c]{@{}l@{}}- Surchauffe de composants\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
+\begin{tabular}[c]{@{}c@{}}Corruption des données\end{tabular} & - Erreur du matériel & Moyenne \\ \hline
+\begin{tabular}[c]{@{}c@{}}Suppression des données\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Administrateur système \\- Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
+\caption{Tableau des scénarios de menace pour les disques durs}
+\label{tab:table-disques}\\
+\end{longtable}
+
+\subsection{Conclusion}
+
 
 \section{Plan d'action}
 
