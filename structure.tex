@@ -15,14 +15,10 @@
 \usepackage{ragged2e}
 \usepackage{helvet}
 \usepackage{rotating}
+\usepackage[normalem]{}
+\usepackage{colortbl}
+\usepackage{multirow}
 \usepackage{longtable}
-
-\makeatletter
-\newcommand{\addloflink}[1]{% \addloflink{<URL>}
-  \addtocontents{lof}{\begingroup\def\protect\@dotsep{10000}% Remove dots in LoF for this entry
-    \protect\contentsline{figlink}{\protect\numberline{}\url{#1}}{}{}%
-    \endgroup}% Restore dots in LoF for future entries
-}
 
 \newcommand\ackname{Acknowledgements}
 \if@titlepage

@@ -91,6 +91,35 @@ L'objectif de cette étude est de pouvoir établir une analyse de risque concern
 
 \section{Analyse de risques}
 
+\subsection{Liens entre biens essentiels et biens supports}
+
+\begin{longtable}{|l|c|c|c|}
+\hline
+\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}\textbf{Biens essentiels}\\\textbf{Bien supports}\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Accès aux informations\\ médicales\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Encodage des\\ données\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Gestion des stocks\\ pharmaceutiques\end{tabular}} \\
+ &  &  &  \\ \hline
+\endfirsthead
+%
+\endhead
+%
+\textbf{\underline{SYS - Reseau interne}} &  &  &  \\ \hline
+\textit{      MAT - Serveurs} & X & X & X \\ \hline
+\textit{\begin{tabular}[c]{@{}l@{}}MAT - Serveur Active\\     Directory\end{tabular}} & X & X & X \\ \hline
+\textit{      MAT - Ordinateurs} & X & X & X \\ \hline
+\textit{      MAT - Disques durs} & X & X & X \\ \hline
+\begin{tabular}[c]{@{}l@{}}\textbf{\underline{ORG - Organisation de}}\\\textbf{\underline{l'hôpital}}\\\end{tabular} &  &  &  \\ \hline
+\textit{PER - Aide soignant} & X & X &  \\ \hline
+\textit{PER - Infirmier} & X & X &  \\ \hline
+\textit{PER - Medecin} & X & X &  \\ \hline
+\textit{PER - Chirurgien} & X & X &  \\ \hline
+\textit{\begin{tabular}[c]{@{}l@{}}PER - Administrateur\\     système\end{tabular}} & X & X & X \\ \hline
+\textit{\begin{tabular}[c]{@{}l@{}}PER - Gestionnaire\\    de stock\end{tabular}} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & X \\ \hline
+\textbf{\underline{LOC - Locaux}} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} \\ \hline
+\textit{LOC - Salle des serveurs} & X & X & X \\ \hline
+\textit{LOC - Salle d'ordinateurs} & X & X & X \\ \hline
+\caption{Tableau des liens entre biens essentiels et bien supports}
+\label{tab:table-liens}\\
+\end{longtable}
+
 \subsection{Evènement redoutés}
 
 Cette section est dédiée à une analyse des évènements redoutés. Cette analyse est basée sur les biens essentiels de l'hôpital et des critères de sécurités importants. (Disponibilité, Confidentialité et Intégrité)
@@ -110,7 +139,7 @@ L'analyse de ce bien essentiel concerne la consultation des informations des pat
 
 	\begin{tabular}[c]{@{}l@{}}Incendie dans\\ la salle des\\ serveurs (+\\ système de\\ stockage)\end{tabular}     & Disponibilité       & \begin{tabular}[c]{@{}l@{}}- Dysfonction-\\nement de\\ matériel\\- Surtension\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular}                                                                                                & \begin{tabular}[c]{@{}l@{}}- Perte des\\ données\\ - Système\\ inaccessible\\ - Réputation de\\ l'hôpital\\ - Vie des\\ patients\end{tabular} & Elevé    \\ \hline
 
-	\begin{tabular}[c]{@{}l@{}}Dysfonction-\\nement du\\ système d'au-\\thentification\end{tabular} & Disponibilité       & \begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Personne\\mal-intentionnée\\- TODO\end{tabular}                                                                                                                              & \begin{tabular}[c]{@{}l@{}}- Impossibilité\\ de consulter les\\ informations\end{tabular}                                               & Elevé    \\ \hline
+	\begin{tabular}[c]{@{}l@{}}Dysfonction-\\nement du\\ système d'au-\\thentification\end{tabular} & Disponibilité       & \begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Personne\\mal-intentionnée\end{tabular}                                                                                                                              & \begin{tabular}[c]{@{}l@{}}- Impossibilité\\ de consulter les\\ informations\end{tabular}                                               & Elevé    \\ \hline
 
 	\begin{tabular}[c]{@{}l@{}}Intrusion d'une\\ personne non\\-autorisée\end{tabular}          & Confidentialité     & \begin{tabular}[c]{@{}l@{}}- Personnel qui a\\ oublié son badge\\ et utilise celui\\ d'un collègue\\ - Mauvaise gestion\\ des roles as-\\signés aux utili-\\sateurs\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Divulgation de\\ données person-\\nelles à une\\ personne non-\\autorisée.\\(secret médical)\end{tabular}      & Elevé    \\ \hline
 
@@ -176,24 +205,29 @@ Cette section est dédiée à une analyse des scénarios de menaces. Cette analy
 \subsubsection{Serveurs}
 
 Les serveurs de l'hôpital sont situés dans une salle qui est prévue à cet effet. Historiquement, l'hôpital ne possédait que très peu de logiciels informatiques. Ils n'ont donc pas investi dans des équipements afin de protéger leur infrastructure. Cette catégorie reprend donc les serveurs où sont installés les logiciels de l'hôpital.
-
 \begin{longtable}{|c|l|c|}
 \hline
-\textbf{\begin{tabular}[c]{@{}c@{}}Scénario de Menace\end{tabular}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de la Menace\end{tabular}}} & \textbf{Probabilité} \\ \hline
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Scénario de Menace}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Source de la Menace}} & \textbf{Probabilité} \\ \hline
 \endfirsthead
 %
 \endhead
 %
-\begin{tabular}[c]{@{}c@{}}Panne de serveur\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Dégradation naturelle des compo-\\ sants du serveur\\ - Manipulation d'un technicien\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
-
-\begin{tabular}[c]{@{}c@{}}Incendie dans la\\salle des serveur\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Dysfonctionnement matériel\\ - Surtension électrique\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
-
-\begin{tabular}[c]{@{}c@{}}Infection par un\\ virus informatique\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Téléchargement de données non-\\ vérifiées sur Internet\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
-
-\begin{tabular}[c]{@{}c@{}}Récupération de données\\confidentielles\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Administrateur système\\ - Administrateur système third-party\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
-
-Panne de courant électrique & \begin{tabular}[c]{@{}l@{}}- Condition météorologique\\ - Problème sur le réseau électrique\\ - Technicien qui débranche un câble\\ par erreur\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
-
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Dysfonctionnement du matériel & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Incendie dans la\\ salle des serveurs\end{tabular}} & Surtension électrique & \cellcolor[HTML]{FE0000}Haute \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Infection par un\\ virus informatique\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Téléchargement de données non-\\vérifiées sur internet par un\\utilisateur\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & \begin{tabular}[c]{@{}l@{}}Dégradation naturelle des compo-\\ sant du serveur\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}Panne de serveur} & \begin{tabular}[c]{@{}l@{}}Mauvaise manipulation d'un\\ technicien\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personnes mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Administrateur système & \cellcolor[HTML]{FFFE65}Faible \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Récupération de données\\ confidentielles\end{tabular}} & Administrateur système externe & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Condition météorologique & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Problème sur le réseau électrique & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\multirow{-4}{*}{\cellcolor[HTML]{EFEFEF}Panne de courant électrique} & \begin{tabular}[c]{@{}l@{}}Technicien qui débranche un câble\\ par erreur\end{tabular} & \cellcolor[HTML]{FE0000}Haute \\ \hline
 \caption{Tableau des scénarios de menace pour les serveurs}
 \label{tab:table-serveurs}\\
 \end{longtable}
@@ -203,23 +237,31 @@ Le serveur Active Directory de l'hôpital est situé dans la même salle où se 
 
 \begin{longtable}{|c|l|c|}
 \hline
-\textbf{\begin{tabular}[c]{@{}c@{}}Scénario de\\ Menace\end{tabular}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \textbf{Probabilité} \\ \hline
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Scénario de Menace}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Source de la Menace}} & \textbf{Probabilité} \\ \hline
 \endfirsthead
 %
 \endhead
 %
-Panne de serveur & \begin{tabular}[c]{@{}l@{}}- Dégradation naturelle des compo-\\ sants du serveur\\ - Manipulation d'un technicien\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
-
-\begin{tabular}[c]{@{}c@{}}Incendie dans\\ la salle des \\ serveur\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Dysfonctionnement matériel\\ - Surtension électrique\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
-
-\begin{tabular}[c]{@{}c@{}}Infection par un\\ virus informatique\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Téléchargement de données non-\\ vérifiées sur Internet\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
-
-\begin{tabular}[c]{@{}c@{}}Récupération des données\\ de connexion\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Administrateur système\\ - Administrateur système third-party\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
-
-\begin{tabular}[c]{@{}c@{}}Altération des données\\ de connexion\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Administrateur système\\ - Administrateur système third-party\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
-
-Panne de courant électrique & \begin{tabular}[c]{@{}l@{}}- Condition météorologique\\ - Problème sur le réseau électrique\\ - Technicien qui débranche un câble\\ par erreur\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
-\caption{Tableau des scénarios de menace pour le système d'authentification}
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Dysfonctionnement du matériel & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Incendie dans la\\ salle des serveurs\end{tabular}} & Surtension électrique & \cellcolor[HTML]{FE0000}Haute \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Infection par un\\ virus informatique\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Téléchargement de données non-\\ vérifiées sur internet\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & \begin{tabular}[c]{@{}l@{}}Dégradation naturelle des compo-\\ sant du serveur\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}Panne de serveur} & \begin{tabular}[c]{@{}l@{}}Mauvaise manipulation d'un\\ technicien\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personnes mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Administrateur système & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Récupération de données\\ confidentielles\end{tabular}} & Administrateur système externe & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{F8FF00}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Administrateur système & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Altération des données\\ de connexion\end{tabular}} & Administrateur système externe & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Condition météorologique & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Problème sur le réseau électrique & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\multirow{-4}{*}{\cellcolor[HTML]{EFEFEF}Panne de courant électrique} & \begin{tabular}[c]{@{}l@{}}Technicien qui débranche un câble\\ par erreur\end{tabular} & \cellcolor[HTML]{FE0000}Haute \\ \hline
+\caption{Tableau des scénarios de menace pour le serveur Active Directory}
 \label{tab:table-authentification}\\
 \end{longtable}
 
@@ -229,14 +271,23 @@ Ce bien support reprend les ordinateurs qui sont mis à disposition du personnel
 
 \begin{longtable}{|c|l|c|}
 \hline
-\textbf{\begin{tabular}[c]{@{}c@{}}Scénario de\\ Menace\end{tabular}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \textbf{Probabilité} \\ \hline
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Scénario de Menace}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Source de la Menace}} & \textbf{Probabilité} \\ \hline
 \endfirsthead
 %
 \endhead
 %
-Panne d'ordinateur & \begin{tabular}[c]{@{}l@{}}- Dégradation naturelle des compo-\\ sants du serveur\\ - Manipulation d'un technicien\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
-Panne de courant électrique & \begin{tabular}[c]{@{}l@{}}- Condition météorologique\\ - Technicien qui débranche un câble\\ par erreur\\ - Problème sur le réseau électrique\\ - Personne mal-intentionnée\end{tabular} & Haute \\ \hline
-\begin{tabular}[c]{@{}c@{}}Infection par un virus\\ informatique\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Téléchargement de données non-\\ vérifiées sur Internet\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
+
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}c@{}}Infection par un\\ virus informatique\end{tabular}} & \begin{tabular}[c]{@{}l@{}}Téléchargement de données non-\\ vérifiées sur internet par un\\utilisateur\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & \begin{tabular}[c]{@{}l@{}}Dégradation naturelle des compo-\\ sant du serveur\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}Panne d'ordinateur} & \begin{tabular}[c]{@{}l@{}}Mauvaise manipulation d'un\\ technicien\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personnes mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Condition météorologique & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Problème sur le réseau électrique & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\multirow{-4}{*}{\cellcolor[HTML]{EFEFEF}Panne de courant électrique} & \begin{tabular}[c]{@{}l@{}}Technicien qui débranche un câble\\ par erreur\end{tabular} & \cellcolor[HTML]{FE0000}Haute \\ \hline
+
 \caption{Tableau des scénarios de menace pour les ordinateurs}
 \label{tab:table-ordinateurs}\\
 \end{longtable}
@@ -247,20 +298,34 @@ Les disques durs de l'hôpital sont stockés dans un endroit spécifique de la s
 
 \begin{longtable}{|c|l|c|}
 \hline
-\textbf{\begin{tabular}[c]{@{}c@{}}Scénario de Menace\end{tabular}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de la Menace\end{tabular}}} & \textbf{Probabilité} \\ \hline
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Scénario de Menace}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Source de la Menace}} & \textbf{Probabilité} \\ \hline
 \endfirsthead
 %
 \endhead
 %
-Incendie & \begin{tabular}[c]{@{}l@{}}- Surchauffe de composants\\ - Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
-\begin{tabular}[c]{@{}c@{}}Corruption des données\end{tabular} & - Erreur du matériel & Moyenne \\ \hline
-\begin{tabular}[c]{@{}c@{}}Suppression des données\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Administrateur système \\- Personne mal-intentionnée\end{tabular} & Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Dysfonctionnement du matériel & \cellcolor[HTML]{F8A102}Moyenne \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}Incendie} & Surtension électrique & \cellcolor[HTML]{FE0000}Haute \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personnes mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\cellcolor[HTML]{EFEFEF} & Administrateur système & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\multirow{-3}{*}{\cellcolor[HTML]{EFEFEF}Suppression des données} & Administrateur système externe & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+\cellcolor[HTML]{EFEFEF} & Personne mal-intentionnée & \cellcolor[HTML]{FCFF2F}Faible \\ \cline{2-3} 
+\multirow{-2}{*}{\cellcolor[HTML]{EFEFEF}Corruption des données} & Erreur du matériel & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
 \caption{Tableau des scénarios de menace pour les disques durs}
 \label{tab:table-disques}\\
 \end{longtable}
 
 \subsection{Conclusion}
 
+\justify
+Cette première phase d'analyse permet de mettre l'accent sur certains points importants:
+\begin{itemize}
+\item La salle des serveurs est un espace critique pour le système informatique de cet hôpital. Si les serveurs sont,pour une raison ou une autre, inutilisable, l'ensemble du système informatique s'écroule. Dès lors, il sera impossible de consulter, d'encoder des informations sur les patients ainsi que de gérer les stocks pharmaceutiques.
+\item Le système de stockage ne possède pas de système de backup. Si un disque est hors-service, il sera impossible de récupérer les données perdues.
+\end{itemize}
+\justify
+Suite à une discussion avec le centre hospitalier, l'établissement a décidé d'entreprendre des mesures pour certains faits évoqués. Ils ont décidés de traiter les évènement redoutés dont la sévérité est élevée et dont la menace a une probabilité moyenne et haute.
 
 \section{Plan d'action}
 
