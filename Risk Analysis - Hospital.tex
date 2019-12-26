@@ -321,7 +321,7 @@ Les disques durs de l'hôpital sont stockés dans un endroit spécifique de la s
 \justify
 Cette première phase d'analyse permet de mettre l'accent sur certains points importants:
 \begin{itemize}
-\item La salle des serveurs est un espace critique pour le système informatique de cet hôpital. Si les serveurs sont,pour une raison ou une autre, inutilisable, l'ensemble du système informatique s'écroule. Dès lors, il sera impossible de consulter, d'encoder des informations sur les patients ainsi que de gérer les stocks pharmaceutiques.
+\item La salle des serveurs est un espace critique pour le système informatique de cet hôpital. Si les serveurs sont,pour une raison ou pour une autre, inutilisable, l'ensemble du système informatique s'écroule. Dès lors, il sera impossible de consulter, d'encoder des informations sur les patients ainsi que de gérer les stocks pharmaceutiques.
 \item Le système de stockage ne possède pas de politique de backup. Si un disque est hors-service, il sera impossible de récupérer les données perdues.
 \end{itemize}
 \justify
@@ -329,9 +329,61 @@ Suite à une discussion avec le centre hospitalier, l'établissement a décidé 
 
 \section{Plan d'action}
 
-\subsection{sub-1}
+\subsection{Solutions}
 
-\subsection{sub-2}
+Cette section répertorie l'ensemble des menaces dont l'hôpital voudrait se prémunir et des possibles solutions qui s'y présentent.
+
+\subsubsection{Accès aux informations médicales}
+
+\justify
+\textbf{Panne de courant:}
+\justify
+\underline{Exigences:} Il est nécessaire que les utilisateurs puissent assurer ce service durant 8 heures au minimum.
+
+\begin{itemize}
+	\item Prévoir un ou plusieurs groupe élèctrogène afin de pouvoir maintenir l'alimentation des appareils qui sont nécessaires au fonctionnement de la plateforme. (ordinateurs, serveurs, etc)
+	\item Prévoir des batteries lithium-ion ou des batteries à l'hydrogène.
+\end{itemize}
+
+\justify
+\textbf{Surtension électrique:}
+\justify
+\begin{itemize}
+	\item Prévoir un disjoncteur afin d'éviter que les composants ne soient affectés lors d'une surtension électrique.
+	\item Installer des parafoudres aux points d'entrée des câbles.
+\end{itemize}
+
+\justify
+\textbf{Dysfonctionnement de matériel:}
+\justify
+\begin{itemize}
+	\item Prévoir des pièces de rechanges afin de pouvoir remplacer au plus vite le matériel qui est défecteux.
+	\item Un service de dépannage 24h/24 qui peut intervenir en cas de problème.
+\end{itemize}
+
+\justify
+\textbf{Dysfonctionnement du système d'authentification:}
+\justify
+\begin{itemize} 
+	\item Prévoir un système d'authentification de secours. Par exemple, un système nom d'utilisateur/mot de passe géré par le serveur. Le serveur pourrait se synchroniser quotidiennement avec l'Active Directory. Ainsi, il pourra autoriser l'accès aux utilisateur avec au maximum une version qui sera datée d'il y a 24 heures. Cette solution n'est pas optimale mais pourrait garantir un service minimum acceptable par l'hôpital.
+\end{itemize}
+
+\justify
+\textbf{Mauvaise gestion des rôles assignés aux utilisateurs:}
+\justify
+\begin{itemize} 
+	\item \underline{Système d'approbation:} Lors de l'administration des rôles à un utilisateur, celui-ci se voit occtroyer le rôle correspondant à son poste. Cependant, il est parfois nécessaire d'occtroyer à des personnes, des droits supplémentaires car ils ont de multiples responsabilités mais qui ne correspond qu'à une partie d'un autre rôle. Pour ce cas spécifique, un système d'approbation par plusieurs entités peut être mis en place afin de garantir les droits minimums pour l'utilisateur.
+\end{itemize}
+
+\subsubsection{Encodage des données}
+
+
+
+\subsubsection{Gestion des stocks pharmaceutiques}
+
+
+
+\subsection{Mise en place}
 
 \newpage
 
