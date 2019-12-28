@@ -79,7 +79,7 @@ Chaque membre du personnel possède un badge afin de s'authentifier sur la plate
 Ce logiciel impacte donc le quotidien des employés de cet hopital. Il est indispensable que tout le personnel indique rigoureusement les information concernant le patient. Ainsi, il sera possible de garantir un suivi médical journalier de haute qualité mais également d'en conserver un historique. Via cette plateforme, il est également possible de gérer les stocks de médicaments. L'accès aux informations médicales, l'encodage des données ainsi que la gestion des stocks pharmaceutiques sont donc les \textbf{biens essentiels} liés à ce projet. 
 
 \justify
-La confidentialité est un des critères de sécurité les plus important pour l'hôpital. De fait, si les informations médicales d'un patient arrivent entre de mauvaises mains, cela peut également avoir des conséquences dramatiques. Il est essentiel que les données médicales soient sécurisées et exploitable uniquement par les utilisateurs qui en ont le droit.
+La confidentialité est un des critères de sécurité les plus important pour l'hôpital. De fait, si les informations médicales d'un patient arrivent entre de mauvaises mains, cela peut avoir des conséquences dramatiques. Il est essentiel que les données médicales soient sécurisées et exploitable uniquement par les utilisateurs qui en ont le droit.
 
 \justify
 En ce qui concerne les \textbf{biens supports}, le centre hospitalier possède une infrastructure informatique dédiée afin de faire fonctionner l'ensemble de ses logiciels. Cette infrastructure comprend: des ordinateurs, des serveurs, un sous-réseau, un serveur Active Directory et de multiples disques durs afin de pouvoir stocker les données.
@@ -91,7 +91,7 @@ L'objectif de cette étude est de pouvoir établir une analyse de risque concern
 
 \section{Analyse de risques}
 
-\subsection{Liens entre biens essentiels et biens supports}
+\subsection{Liens entre biens essentiels et biens supports} \label{lien-essentiel-support}
 
 \begin{longtable}{|l|c|c|c|}
 \hline
@@ -128,72 +128,88 @@ Cette section est dédiée à une analyse des évènements redoutés. Cette anal
 
 L'analyse de ce bien essentiel concerne la consultation des informations des patients. Par exemple, en début de service par un membre du corps médical.
 
-\begin{longtable}{|l|l|l|l|l|}
+\begin{longtable}{|
+>{\columncolor[HTML]{EFEFEF}}l |c|
+>{\columncolor[HTML]{FFFFFF}}l |l|
+>{\columncolor[HTML]{FE0000}}c |}
 \hline
-
-\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Evènements\\ Redoutés\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Critère de\\ Sécurité\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \multicolumn{1}{c|}{\textbf{Impact}} & \multicolumn{1}{c|}{\textbf{Sévérité}} \\ \hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Evènements\\ Redoutés\end{tabular}}} & \cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Critère de\\ Sécurité\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Impact}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}\textbf{Sévérité}} \\ \hline
 \endfirsthead
 %
 \endhead
 %
 
-	\begin{tabular}[c]{@{}l@{}}Incendie dans\\ la salle des\\ serveurs (+\\ système de\\ stockage)\end{tabular}     & Disponibilité       & \begin{tabular}[c]{@{}l@{}}- Dysfonction-\\nement de\\ matériel\\- Surtension\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular}                                                                                                & \begin{tabular}[c]{@{}l@{}}- Perte des\\ données\\ - Système\\ inaccessible\\ - Réputation de\\ l'hôpital\\ - Vie des\\ patients\end{tabular} & Elevé    \\ \hline
+Panne de courant & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Condition météo-\\ rologique\\ - Problème sur le\\ réseau électrique\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossibilité\\ de consulter les\\ données\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
 
-	\begin{tabular}[c]{@{}l@{}}Dysfonction-\\nement du\\ système d'au-\\thentification\end{tabular} & Disponibilité       & \begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Personne\\mal-intentionnée\end{tabular}                                                                                                                              & \begin{tabular}[c]{@{}l@{}}- Impossibilité\\ de consulter les\\ informations\end{tabular}                                               & Elevé    \\ \hline
+\begin{tabular}[c]{@{}l@{}}Dysfonction-\\ nement du sy-\\ stème d'auth-\\ entification\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Problème maté-\\ riel\\ - Cable débranché\\ par erreur\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ se connecter\\ - Impossibilité\\ de consulter les\\ données\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
 
-	\begin{tabular}[c]{@{}l@{}}Intrusion d'une\\ personne non\\-autorisée\end{tabular}          & Confidentialité     & \begin{tabular}[c]{@{}l@{}}- Personnel qui a\\ oublié son badge\\ et utilise celui\\ d'un collègue\\ - Mauvaise gestion\\ des roles as-\\signés aux utili-\\sateurs\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Divulgation de\\ données person-\\nelles à une\\ personne non-\\autorisée.\\(secret médical)\end{tabular}      & Elevé    \\ \hline
+\begin{tabular}[c]{@{}l@{}}Incendie dans\\ la salle des\\ serveurs\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Dysfonction-\\ nement de\\ matériel\\ - Surtention\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossibilité\\ de consulter les\\ données\\ - Indisponibilité\\ de longue durée\end{tabular} & Elevé \\ \hline
 
-	\begin{tabular}[c]{@{}l@{}}Panne de courant\end{tabular}          & Disponibilité     & \begin{tabular}[c]{@{}l@{}}- Problème sur\\ le réseau  éle-\\ctrique\\- Personne\\ mal-intentionnée \end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ récupérer les\\ informations \\des patients \end{tabular}      & Elevé    \\ \hline
+\begin{tabular}[c]{@{}l@{}}Panne de disque\\ dur\end{tabular} & Intégrité & \begin{tabular}[c]{@{}l@{}}- Dysfonction-\\ nement de\\ matériel\\ - Surtension\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Aucune don-\\ nées visibles\\ dans l'interface\\ graphique\\ - Le personnel\\ ne sait plus sui-\\ vre le dossier\\ des patients\\ - Perte des don-\\ nées\end{tabular} & Elevé \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}Intrusion d'une\\ personne non-\\ autorisée\end{tabular} & Confidentialité & \begin{tabular}[c]{@{}l@{}}- Personnel qui a\\ oublié son badge\\ et utilise celui d'\\ un collègue\\- Vol de badge\\- Mauvaise gestion\\ des rôles assignés\\ aux utilisateurs\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Divulgation de\\ données person-\\ elles à une per-\\ sonne non-auto-\\ risée\\ (Violation du se-\\ cret médical)\end{tabular} & Elevé \\ \hline
 
 \caption{Table d'analyse de l'accès aux information médicales}
-\label{table:accesInformationsMedicales}
+\label{tab:accesInformationsMedicales}\\
 \end{longtable}
 
 \subsubsection{Encodage des données}
 
 L'analyse de ce bien essentiel concerne l'encodage des données sur un patient. Par exemple, en fin de service par un membre du corps médical. Cependant, l'encodage requiert un formalisme précis. Les nouveaux médecins ou tout médecin non-initié à ce formalisme peut engendrer un encodage erroné. 
 
-\begin{longtable}{|l|l|l|l|l|}
+\begin{longtable}{|
+>{\columncolor[HTML]{EFEFEF}}l |c|l|l|c|}
 \hline
-\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Evènements\\ Redoutés\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Critère de\\ Sécurité\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \multicolumn{1}{c|}{\textbf{Impact}} & \multicolumn{1}{c|}{\textbf{Sévérité}} \\ \hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Evènements\\ Redoutés\end{tabular}}} & \cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Critère de\\ Sécurité\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Impact}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}\textbf{Sévérité}} \\ \hline
 \endfirsthead
 %
 \endhead
 %
-\begin{tabular}[c]{@{}l@{}}Intrusion d'une\\ personne non\\-autorisée\end{tabular} & Intégrité & \begin{tabular}[c]{@{}l@{}}- Personnel qui a\\ oublié son badge\\ et utilise celui\\ d'un collègue\\ - Mauvaise gestion des\\ roles assignés aux\\ utilisateurs\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Altération des\\ données des\\ patients\\ - La vie du\\ patient est\\ mise en\\ danger\end{tabular} & Elevé \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}Dysfonction-\\nement du\\ système d'au-\\thentification\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Utilisateur\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Système\\ inutilisable \end{tabular} & Elevé \\ \hline
+Panne de courant & Disponibilité & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Condition météo-\\ rologique\\ - Problème sur le\\ réseau électrique\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossibilité\\ d'encoder les\\ données\\ (désynchroni-\\ sation avec l'\\ état actuel des\\ patients)\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}Panne de\\ courant\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Problème sur\\ le réseau électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Système\\ inutilisable \end{tabular} & Elevé \\ \hline
+\begin{tabular}[c]{@{}l@{}}Dysfonction-\\ nement du sy-\\ stème d'auth-\\ entification\end{tabular} & Disponibilité & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Problème maté-\\ riel\\ - Cable débranché\\ par erreur\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ se connecter\\ - Impossibilité\\ d'encoder les\\ données\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}Incendie dans\\ la salle des\\ serveurs (+\\ système de\\ stockage)\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}Dysfonction-\\nement du\\ matériel\\- Surtension\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Système\\ inutilisable \end{tabular} & Elevé \\ \hline
+\begin{tabular}[c]{@{}l@{}}Personnel qui\\ utilise le badge\\ d'un collègue\end{tabular} & Confidentialité & \begin{tabular}[c]{@{}l@{}}- Personnel qui a\\ oublié son badge\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Historique de\\ modification \\ faussé\\ - Si erreur d'en-\\ codage, risque\\ judiciaire\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}Incendie dans\\ la salle des\\ serveurs\end{tabular} & Disponibilité & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Dysfonction-\\ nement de\\ matériel\\ - Surtention\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Le personnel\\ ne sait plus ali-\\ menter le dos-\\ sier des patients\\ - Indisponibilité\\ de longue durée\end{tabular} & \cellcolor[HTML]{FE0000}Elevé \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}Panne de disque\\ dur\end{tabular} & Intégrité & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Dysfonction-\\ nement de\\ matériel\\ - Surtension\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Le personnel\\ ne sait plus ali-\\ menter le dos-\\ sier des patients\\ - Perte des don-\\ nées\end{tabular} & \cellcolor[HTML]{FE0000}Elevé \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}Intrusion d'une\\ personne non-\\ autorisée\end{tabular} & Confidentialité & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Vol de badge\\- Mauvaise gestion\\ des rôles assignés\\ aux utilisateurs\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Altération des\\ données des\\ patients\\ - La vie des pa-\\ tients est mise\\ en danger\end{tabular} & \cellcolor[HTML]{FE0000}Elevé \\ \hline
+
+\begin{tabular}[c]{@{}l@{}}Dosage de médi-\\ cament encodé\\ de manière erro-\\ née\end{tabular} & Intégrité & \begin{tabular}[c]{@{}l@{}}- Médecin qui ne\\ maîtrise pas le\\ logiciel\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- L'administration\\ d'un dosage trop\\ élevé peut mettre\\ la vie des patients\\ en danger\end{tabular} & \cellcolor[HTML]{FE0000}Elevé \\ \hline
 
 \caption{Table d'analyse de l'encodage des données}
-\label{table:encodageDonnees}
+\label{tab:encodageDonnees}\\
 \end{longtable}
 
 \subsubsection{Gestion des stocks pharmaceutiques}
 
 Ce bien essentiel correspond à la partie du système informatique qui est capable de gérer les stocks pharmaceutique. Etant donné que les médicaments sont prescris aux patients de manière informatisée, il est possible pour le gestionnaire de stocks d'accéder à une estimation des médicaments qui restent en stocks et également les médicaments qu'il faudrait commander dans les prochains jours. Grace à ce système, il peut optimiser au mieux les stocks afin de ne pas tomber en rupture de médicaments. A cette fin, le système prévoit également la possibilité de programmer des commandes aux fournisseurs de manière automatisée. 
 
-\begin{longtable}{|l|c|l|l|c|}
+\begin{longtable}{|l|c|l|l|
+>{\columncolor[HTML]{FE0000}}c |}
 \hline
-\multicolumn{1}{|c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Evènements\\ Redoutés\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Critère de\\ Sécurité\end{tabular}}} & \multicolumn{1}{c|}{\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \multicolumn{1}{c|}{\textbf{Impact}} & \multicolumn{1}{c|}{\textbf{Sévérité}} \\ \hline
+\multicolumn{1}{|c|}{\cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Evènements\\ Redoutés\end{tabular}}} & \cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Critère de\\ Sécurité\end{tabular}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{\begin{tabular}[c]{@{}c@{}}Source de\\ la Menace\end{tabular}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}\textbf{Impact}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}\textbf{Sévérité}} \\ \hline
 \endfirsthead
 %
 \endhead
 %
-\begin{tabular}[c]{@{}l@{}}Incendie dans\\ la salle des\\ serveurs\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Dysfonction-\\ nement du\\ matériel\\ - Surtension\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ consulter le \\ stock restant\\ - Impossible\\ de réapprovi-\\ sionner les\\ stocks\end{tabular} & Elevé \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}Dosage de mé-\\ dicaments er-\\ ronés\end{tabular} & Intégrité & \begin{tabular}[c]{@{}l@{}}- Nouveaux mé-\\ decins ne maitri-\\ sant pas le logi-\\ ciel\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Trop de com-\\ mandes => \\ Mise à mal de\\ la finance de l'\\ hôpital\\ - Trop peu de\\ commande =>\\ Pas assez de \\ médicaments\\ pour les patients\end{tabular} & Elevé \\ \hline
+\cellcolor[HTML]{EFEFEF}Panne de courant & Disponibilité & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Condition météo-\\ rologique\\ - Problème sur le\\ réseau électrique\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ consulter le stock\\ restant\\ - Impossible de\\ réapprovisionner\\ les stocks\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}Mauvaise pro-\\ grammation du\\ système auto-\\ matisé de ges-\\ tion des stocks\end{tabular} & Intégrité & \begin{tabular}[c]{@{}l@{}}- Nouveaux mé-\\ decins ne maitri-\\ sant pas le logi-\\ ciel\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Dosage de mé\\ dicaments er-\\ ronées\end{tabular} & Elevé \\ \hline
+\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}l@{}}Dysfonction-\\ nement du sy-\\ stème d'auth-\\ entification\end{tabular} & Disponibilité & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Erreur logiciel\\ - Problème maté-\\ riel\\ - Cable débranché\\ par erreur\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ se connecter\\ - Impossible de\\ consulter le stock\\ restant\\ - Impossible de\\ réapprovisionner\\ les stocks\end{tabular} & \cellcolor[HTML]{F8A102}Moyenne \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}Intrusion d'une\\ personne non-\\ authorisée\end{tabular} & Intégrité & \begin{tabular}[c]{@{}l@{}}- Personnel qui a\\ oublié son badge\\ et utilise celui\\ d'un collègue\\ - Mauvaise gestion\\ des roles as-\\ signés aux utili-\\ sateurs\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Sabotage des \\ stocks informa-\\ tisés\end{tabular} & Elevé \\ \hline
+\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}l@{}}Incendie dans\\ la salle des\\ serveurs\end{tabular} & Disponibilité & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Dysfonction-\\ nement de\\ matériel\\ - Surtention\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ consulter le stock\\ restant\\ - Impossible de\\ réapprovisionner\\ les stocks\\ - Indisponibilité\\ de longue durée\end{tabular} & Elevé \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}Panne de cou-\\ rant\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Problème sur\\ le réseau électri-\\ que\\ \\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ consulter le \\ stock restant\\ - Impossible\\ de réapprovi-\\ sionner les\\ stocks\end{tabular} & Elevé \\ \hline
+\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}l@{}}Panne de disque\\ dur\end{tabular} & Intégrité & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Dysfonction-\\ nement de\\ matériel\\ - Surtension\\ électrique\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ consulter le stock\\ restant\\ - Impossible de\\ réapprovisionner\\ les stocks\\ - Perte des don-\\ nées\end{tabular} & Elevé \\ \hline
 
-\begin{tabular}[c]{@{}l@{}}Dysfonction-\\ nement du sys-\\ tème d'authenti-\\ fication\end{tabular} & Disponibilité & \begin{tabular}[c]{@{}l@{}}- Erreur Logiciel\\ - Personne\\ mal-intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Impossible de\\ consulter le \\ stock restant\\ - Impossible\\ de réapprovi-\\ sionner les\\ stocks\end{tabular} & Elevé \\ \hline
+\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}l@{}}Intrusion d'une\\ personne non-\\ autorisée\end{tabular} & \begin{tabular}[c]{@{}c@{}}Confidentialité\\ et\\ Intégrité\end{tabular} & \cellcolor[HTML]{FFFFFF}\begin{tabular}[c]{@{}l@{}}- Vol de badge\\- Mauvaise gestion\\ des rôles assignés\\ aux utilisateurs\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Divulgation d'\\ informations de \\ stocks\\- Altération des\\ informations liées\\ aux stocks\\ (annulation des\\ réservations ou\\ surplus de stocks\\ non-nécessaire)\end{tabular} & Elevé \\ \hline
+
+\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}l@{}}Dosage de médi-\\ cament encodé\\ de manière erro-\\ née\end{tabular} & Intégrité & \begin{tabular}[c]{@{}l@{}}- Médecin qui ne\\ maîtrise pas le\\ logiciel d'\\encodage\\- Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Trop de com-\\ mandes => Mise\\ à mal du budget\\ de l'hôpital\\ - Trop peu de\\ commandes =>\\ Pas assez de mé-\\ dicaments pour\\ les patients\end{tabular} & Elevé \\ \hline
+
+\cellcolor[HTML]{EFEFEF}\begin{tabular}[c]{@{}l@{}}Mauvaise pro-\\ grammation du\\ système automa-\\ tisé de gestion du\\ stock\end{tabular} & Intégrié & \begin{tabular}[c]{@{}l@{}}- Gestionnaire de\\ stock\\ - Personne mal-\\ intentionnée\end{tabular} & \begin{tabular}[c]{@{}l@{}}- Trop peu de stock\\ - Trop de stock\end{tabular} & Elevé \\ \hline
 \caption{Table d'analyse de gestion des stocks pharmaceutiques}
 \label{tab:gestion-stock-pharmacie}\\
 \end{longtable}
@@ -319,7 +335,7 @@ Les disques durs de l'hôpital sont stockés dans un endroit spécifique de la s
 \subsection{Conclusion}
 
 \justify
-Cette première phase d'analyse permet de mettre l'accent sur certains points importants:
+Cette phase d'analyse de risques permet de mettre l'accent sur certains points importants:
 \begin{itemize}
 \item La salle des serveurs est un espace critique pour le système informatique de cet hôpital. Si les serveurs sont,pour une raison ou pour une autre, inutilisable, l'ensemble du système informatique s'écroule. Dès lors, il sera impossible de consulter, d'encoder des informations sur les patients ainsi que de gérer les stocks pharmaceutiques.
 \item Le système de stockage ne possède pas de politique de backup. Si un disque est hors-service, il sera impossible de récupérer les données perdues.
@@ -331,58 +347,179 @@ Suite à une discussion avec le centre hospitalier, l'établissement a décidé 
 
 \subsection{Solutions}
 
-Cette section répertorie l'ensemble des menaces dont l'hôpital voudrait se prémunir et des possibles solutions qui s'y présentent.
+Cette section répertorie l'ensemble des risques dont l'hôpital voudrait se prémunir. Pour chaque risque, la source peut évidemment être différente. C'est pourquoi, le même risque peut être sub-divisé en plusieurs sous-solution en fonction de l'origine de la menace.
 
-\subsubsection{Accès aux informations médicales}
+\subsubsection{Panne de courant}
 
 \justify
-\textbf{Panne de courant:}
-\justify
-\underline{Exigences:} Il est nécessaire que les utilisateurs puissent assurer ce service durant 8 heures au minimum.
+\underline{Exigences:} Il est nécessaire que le personnel puisse assurer les services medicaux durant 8 heures au minimum. Ainsi, il existe une marge de manoeuvre afin de trouver l'origine de la panne et d'y apporter une solution.
 
 \begin{itemize}
 	\item Prévoir un ou plusieurs groupe élèctrogène afin de pouvoir maintenir l'alimentation des appareils qui sont nécessaires au fonctionnement de la plateforme. (ordinateurs, serveurs, etc)
 	\item Prévoir des batteries lithium-ion ou des batteries à l'hydrogène.
 \end{itemize}
 
-\justify
-\textbf{Surtension électrique:}
+\textbf{Surtension électrique:} \label{surtension-elec}
 \justify
 \begin{itemize}
 	\item Prévoir un disjoncteur afin d'éviter que les composants ne soient affectés lors d'une surtension électrique.
-	\item Installer des parafoudres aux points d'entrée des câbles.
+	\item Installer des parafoudres aux points d'entrée des câbles.\\
 \end{itemize}
 
+\textbf{Technicien qui débranche un cable par erreur:}
 \justify
-\textbf{Dysfonctionnement de matériel:}
+\begin{itemize}
+	\item Ajouter des étiquettes sur les cables.
+	\item Prévoir deux alimentations pour les composants critiques.
+\end{itemize}
+
+\subsubsection{Dysfonctionnement de matériel:} \label{dysf-mat}
 \justify
 \begin{itemize}
 	\item Prévoir des pièces de rechanges afin de pouvoir remplacer au plus vite le matériel qui est défecteux.
 	\item Un service de dépannage 24h/24 qui peut intervenir en cas de problème.
 \end{itemize}
 
+\subsubsection{Dysfonctionnement du système d'authentification:} \label{dysf-auth}
 \justify
-\textbf{Dysfonctionnement du système d'authentification:}
+\begin{itemize}
+	\item Prévoir un système d'authentification de secours. Par exemple, un système nom d'utilisateur/mot de passe géré par le serveur.
+	\item Si problème matériel, voir section \ref{dysf-mat} \\
+	
+\end{itemize}
+
+\textbf{Erreur logiciel:}
+\justify
+\begin{itemize}
+	\item Ajouter des logs.
+	\item Ajouter des exceptions qui peuvent être remontées jusqu'à l'affichage (avec code d'erreur).\\
+\end{itemize}
+
+\textbf{Cable débranché par erreur:}
+\justify
+\begin{itemize}
+	\item Prévoir un message signifiant ce problème dans l'interface graphique du logiciel. Ainsi, le personnel peut facilement résoudre le problème par eux-mêmes.
+	\item Si le matériel n'est toujours pas reconnu, prévoir un bouton d'aide et/ou appel vers un technicien (section \ref{dysf-mat}).
+\end{itemize}
+
+\subsubsection{Personnel qui utilise le badge d'un collègue:} \label{oubli-badge}
 \justify
 \begin{itemize} 
-	\item Prévoir un système d'authentification de secours. Par exemple, un système nom d'utilisateur/mot de passe géré par le serveur. Le serveur pourrait se synchroniser quotidiennement avec l'Active Directory. Ainsi, il pourra autoriser l'accès aux utilisateur avec au maximum une version qui sera datée d'il y a 24 heures. Cette solution n'est pas optimale mais pourrait garantir un service minimum acceptable par l'hôpital.
+	\item Présenter des affiches de prévention sur les ordinateurs afin d'éviter cette pratique. Etant donné que chaque badge est nominatif, chaque action réalisée dans le système peut être tracée. Par conséquent, si une erreur a été commise, celle-ci peut être traquée. L'erreur sera donc juridiquement de la faute du porteur de badge et non de l'emprunteur.
+	\item Prévoir une authentification à plusieurs facteurs. (ex: badge + empreinte digitale)
+\end{itemize}
+
+\subsubsection{Intrusion d'une personne non-autorisée:} 
+
+\hspace{16pt}\textbf{Vol de badge:}
+\justify
+\begin{itemize} 
+	\item Ajouter la possibilité de déclarer le vol ou la perte d'un badge. De cette manière, il sera possible de désactiver l'authentification pour le badge qui n'est plus valable. Par extension, cette fonctionnalité pourrait, si l'hôpital le désire, désactiver les badges d'employés qui ne font plus partie de l'hôpital.
+	\item Authentification à plusieurs facteurs. (ex: badge + empreinte digitale)\\
+\end{itemize}
+
+\textbf{Mauvaise gestion des rôles assignés aux utilisateurs:} 
+\justify
+\begin{itemize} 
+	\item \underline{Système d'approbation:} Lors de l'administration des rôles à un utilisateur, celui-ci se voit occtroyer le(s) rôle(s) correspondant(s) à son poste. Cependant, il est parfois nécessaire d'occtroyer à des personnes, des droits supplémentaires car ils possèdent de multiples responsabilités. Cependant, ceux-ci ne correspondent parfois qu'à une partie d'un autre rôle. Pour ce cas spécifique, un système d'approbation par plusieurs entités peut être mis en place afin de garantir les droits minimums pour l'utilisateur. L'occtroi des droits utilisateurs dans ce cas spécifique devra être approuvé par plusieurs personnes. Ces personnes auront le devoir d'analyser rigoureusement les demandes.
 \end{itemize}
 
 \justify
-\textbf{Mauvaise gestion des rôles assignés aux utilisateurs:}
+\subsubsection{Panne de disque dur:} \label{panne-disque}
 \justify
+\underline{Exigences:} Les données des patients sont cruciales pour l'hôpital. Aucune perte ne peut être tolérée. Il est donc nécessaire de prévoir des mécanismes de redondance.
 \begin{itemize} 
-	\item \underline{Système d'approbation:} Lors de l'administration des rôles à un utilisateur, celui-ci se voit occtroyer le rôle correspondant à son poste. Cependant, il est parfois nécessaire d'occtroyer à des personnes, des droits supplémentaires car ils ont de multiples responsabilités mais qui ne correspond qu'à une partie d'un autre rôle. Pour ce cas spécifique, un système d'approbation par plusieurs entités peut être mis en place afin de garantir les droits minimums pour l'utilisateur.
+	\item Prévoir une technique de virtualisation de stockage en RAID 50. Cette technique se base sur le principe du RAID 5 avec de la redondance du RAID 0\cite{raid}. C'est-à-dire que cette méthode permet la perte d'un disque par grappe de raid 5. Par exemple, si l'hôpital possède 6 disques et met en place 2 grappes de 3 disques dur, il est sans danger de perdre 2 disques si ceux-ci sont répartis sur les deux grappes.
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=200pt]{assets/raid-50.jpg} 
+	\caption[Raid 50]{Raid 50. (Source: \cite{raid})}
+	\label{fig:raid50}
+	\end{figure}
+
+	\item La solution précédente est efficace mais ne peut couvrir la perte des données en cas d'incendie. Si tous les disques durs sont touchés, il sera impossible de restaurer les données. Afin de prévenir ce cas défaillant, un système de backup journalier vers un autre centre hospitalier localisé dans une autre ville peut être mis en place. Ainsi, il sera toujours possible de récupérer les données en cas de gros désastre. Un compromis avec un autre hôpital peut être convenu afin de limiter les coûts. (Chaque hôpital peut conserver un backup de l'autre)
 \end{itemize}
 
-\subsubsection{Encodage des données}
+\subsubsection{Dosage de médicament encodé de manière erronée}
+\justify
+\begin{itemize}
+	\item Prévoir des séances de formation à l'encodage des données
+	\item Permettre plusieurs unités de mesures dans le logiciel. Ainsi, le logiciel peut convertir le dosage dans d'autres unités si nécessaire.
+	\item Prévoir des message d'information si le dosage semble trop élevé ou trop faible. (avec pop-up de confirmation)
+\end{itemize}
+
+\subsubsection{Mauvaise programmation du système automatisé de gestion du stock}
+\justify
+\begin{itemize}
+	\item Prévoir des séances de formation pour les gestionnaires de stock
+	\item Prévoir des aides dans le logiciel afin d'avertir si la programmation est cohérente par rapport à l'existant. (~= détecteur d'anomalie)
+\end{itemize}
+
+\subsubsection{Incendie dans la salle des serveurs}
+\justify
+\begin{itemize}
+	\item Voir section \ref{surtension-elec}
+	\item Prévoir des détecteurs de fumée.
+	\item Prévoir des portes coupe-feu.
+	\item Prévoir des extincteurs automatique à gaz neutre. Contrairement aux extincteurs automatiques à eau, le matériel informatique n'est pas abîmé par l'eau. Les gaz extincteurs vont permettre d'étouffer le feu sans abîmer les composants.
+\end{itemize}
+
+\subsubsection{Panne de serveur}
+\justify
+\begin{itemize}
+	\item Prévoir un mécanisme de Fail-Over. Les illustrations ci-dessous représentent le scénario d'un mécanisme de failover.
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=200pt]{assets/failover-ok.png} 
+	\caption[Failover cas normal]{Système fonctionnel. (Source: \cite{failover})}
+	\label{fig:failoverok}
+	\end{figure}
+	Si la machine maitre tombe en panne. La machine esclave est capable de reprendre la main. Ainsi, le système peut toujours fonctionner en attendant que la première machine soit remplacée.
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=200pt]{assets/failover-nok.png} 
+	\caption[Failover cas dégradé]{Réatribution des responsabilités à la machine esclave. (Source: \cite{failover})}
+	\label{fig:failovernok}
+	\end{figure}	
+	\item Voir section \ref{dysf-mat}
+\end{itemize}
+
+\subsubsection{Infection par un virus informatique}
+\justify
+\begin{itemize}
+	\item Pour les ordinateurs, l'accès à internet n'est pas obligatoire. Le simple accès à la plateforme est nécessaire. Il suffit de ne pas donner un accès à internet à ces machines.
+	\item Pour les serveurs, il est nécessaire d'installer au minimum un antivirus.
+	\item Pour les serveurs, il est important de désactiver tous les ports inutiles.
+	\item Le routeur qui mène à internet possède déjà un firewall. Par contre, la configuration de celui-ci n'est pas à jour. Il faudrait configurer ce routeur afin de bloquer tout le traffic qui n'est pas nécessaire pour l'hôpital.
+\end{itemize}
+
+\subsubsection{Récupération de données confidentielles}
+\justify
+\begin{itemize}
+	\item 
+	\item b
+\end{itemize}
+
+\subsubsection{Altération des données de connexion}
+\hspace{16pt}\textbf{Administrateur système externe:}
+\justify
+\begin{itemize}
+	\item Réduire les droits d'accès. Donner uniquement les accès suffisants.
+\end{itemize}
 
 
+\subsubsection{Suppression des données}
+\justify
+\begin{itemize}
+	\item a
+	\item b
+\end{itemize}
 
-\subsubsection{Gestion des stocks pharmaceutiques}
+\subsubsection{Corruption des données}
+\hspace{16pt}\textbf{Erreur matériel:} 
+\justify
+\begin{itemize}
+	\item Si une corruption de données est causée par le disque dur, il est nécessaire d'avoir un mécanisme de récupération de données. Voir section \ref{panne-disque}
+\end{itemize}
 
-
-
+\newpage
 \subsection{Mise en place}
 
 \newpage
@@ -399,7 +536,9 @@ Cette section répertorie l'ensemble des menaces dont l'hôpital voudrait se pr�
 
 \nocite{*}
 \section*{Bibliographie}
+
 \printbibliography[heading=none]
+
 \addcontentsline{toc}{section}{\protect\numberline{}Bibliographie}%
 
 %----------------------------------------------------------------------------------------
