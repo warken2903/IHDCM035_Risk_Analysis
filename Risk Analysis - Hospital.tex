@@ -493,10 +493,15 @@ Cette section répertorie l'ensemble des risques dont l'hôpital voudrait se pr�
 \subsubsection{Récupération de données confidentielles}
 \justify
 \begin{itemize}
-	\item 
-	\item b
+	\item Mettre en place un mécanisme de cryptographie asymétrique afin de sécuriser le transport des données critiques entre l'ordinateur et le serveur applicatif. L'ordinateur va chiffrer les données à envoyer avec clé publique du serveur. De l'autre côté, le serveur va pouvoir déchiffrer le message envoyé par l'ordinateur avec sa clé privée. Il sera le seul à pouvoir lire ce message.
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth,height=200pt]{assets/Asymmetric_cryptography.png} 
+	\caption[Mécanisme de cryptographie asymétrique]{Mécanisme de cryptographie asymétrique. (Source: \cite{asymetric-cryptography})}
+	\label{fig:cryptoasym}
+	\end{figure}
+	\item Sécuriser l'accès aux bases de données avec par nom d'utiliseur/mot de passe. Il faut penser à utiliser des utilisateurs spécifiques pour les applications. Ainsi, les droits d'accès peuvent être géré plus facilement. (pas accès à la modification/suppression de schéma, colonnes, etc)
 \end{itemize}
-
+	
 \subsubsection{Altération des données de connexion}
 \hspace{16pt}\textbf{Administrateur système externe:}
 \justify
@@ -507,9 +512,9 @@ Cette section répertorie l'ensemble des risques dont l'hôpital voudrait se pr�
 
 \subsubsection{Suppression des données}
 \justify
+\hspace{16pt}\textbf{Administrateur système externe:}
 \begin{itemize}
-	\item a
-	\item b
+	\item Réduire les droits d'accès. Donner uniquement les accès suffisants.
 \end{itemize}
 
 \subsubsection{Corruption des données}
